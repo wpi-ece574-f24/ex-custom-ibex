@@ -20,6 +20,7 @@ filesets:
       - rtl/system/uart.sv
       - rtl/system/spi_host.sv
       - rtl/system/spi_top.sv
+      - custom/rtl/myreg.sv
     file_type: systemVerilogSource
 
 targets:
