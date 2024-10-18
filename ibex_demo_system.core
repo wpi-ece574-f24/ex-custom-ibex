@@ -187,3 +187,8 @@ targets:
           - "--unroll-count 72"
     parameters:
       - PRIM_DEFAULT_IMPL=prim_pkg::ImplGeneric
+
+  synth:
+    <<: *default_target
+    default_tool: genus
+    toplevel: top_verilator

@@ -43,6 +43,10 @@ parameters:
     paramtype: vlogdefine
     description: Primitives implementation to use, e.g. "prim_pkg::ImplGeneric".
 
+  SYNTHESIS:
+    datatype: bool
+    paramtype: vlogdefine
+
 targets:
   default: &default_target
     filesets:
@@ -74,3 +78,8 @@ targets:
           - "--unroll-count 72"
     parameters:
       - PRIM_DEFAULT_IMPL=prim_pkg::ImplGeneric
+
+  synth:
+    <<: *default_target
+    default_tool: genus
+    toplevel: top_verilator
