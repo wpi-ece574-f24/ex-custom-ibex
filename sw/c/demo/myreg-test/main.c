@@ -102,7 +102,11 @@ int main(void) {
   puthex(elapsed() - overhead);
   putchar('\n');
 
-  while (1) ;
+  // give uart time to flush out
+  for (overhead=0; overhead<20000; overhead++) ;
+
+  // exit the simulation
+  sim_halt();
 
   return 0;
 }

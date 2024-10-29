@@ -1,0 +1,7 @@
+# Cadence Genus(TM) Synthesis Solution, Version 21.19-s055_1, built May 29 2024 16:33:07
+
+# Date: Tue Oct 29 13:26:54 2024
+# Host: arc-schaumont-class-vm (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (8cores*8cpus*1physical cpu*Intel(R) Xeon(R) CPU E5-2680 v4 @ 2.40GHz 16384KB)
+# OS:   Red Hat Enterprise Linux Server release 7.9 (Maipo)
+
+exit

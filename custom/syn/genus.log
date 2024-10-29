@@ -1,0 +1,308 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[06:48:21.456105] Configured Lic search path (21.01-s002): 5280@arclic02.wpi.edu
+
+Version: 21.19-s055_1, built Wed May 29 13:33:07 PDT 2024
+Options: -files genus_script.tcl 
+Date:    Fri Oct 18 06:48:21 2024
+Host:    arc-schaumont-class-vm (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (8cores*8cpus*1physical cpu*Intel(R) Xeon(R) CPU E5-2680 v4 @ 2.40GHz 16384KB) (32779388KB)
+PID:     25559
+OS:      Red Hat Enterprise Linux Server release 7.9 (Maipo)
+
+
+[06:48:21.514747] Periodic Lic check successful
+[06:48:21.514753] Feature usage summary:
+[06:48:21.514754] Genus_Synthesis
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (76 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source genus_script.tcl
+#@ Begin verbose source ./genus_script.tcl
+@file(genus_script.tcl) 7: if {![info exists ::env(TIMINGPATH)] } {
+    puts "Error: missing TIMINGPATH"
+    exit(0)
+}
+@file(genus_script.tcl) 12: if {![info exists ::env(TIMINGLIB)] } {
+    puts "Error: missing TIMINGLIB"
+    exit(0)
+}
+@file(genus_script.tcl) 17: set_db init_lib_search_path [getenv TIMINGPATH]
+  Setting attribute of root '/': 'init_lib_search_path' = /opt/cadence/libraries/gsclib045_all_v4.7/gsclib045/timing/
+@file(genus_script.tcl) 18: read_libs [getenv TIMINGLIB]
+
+Threads Configured:3
+
+  Message Summary for Library slow_vdd1v0_basicCells.lib:
+  *******************************************************
+  Missing a function attribute in the output pin definition. [LBR-518]: 1
+  *******************************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.900000, 125.000000) in library 'slow_vdd1v0_basicCells.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'ANTENNA' must have an output pin.
+        : Add the missing output pin(s), then reload the library. Else the library cell will be marked as timing model i.e. unusable. Timing_model means that the cell does not have any defined function. If there is no output pin, Genus will mark library cell as unusable i.e. the attribute 'usable' will be marked to 'false' on the libcell. Therefore, the cell is not used for mapping and it will not be picked up from the library for synthesis. If you query the attribute 'unusable_reason' on the libcell; result will be: 'Library cell has no output pins.'Note: The message LBR-9 is only for the logical pins and not for the power_ground pins. Genus will depend upon the output function defined in the pin group (output pin) of the cell, to use it for mapping. The pg_pin will not have any function defined.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'ANTENNA' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP10' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP10' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP2' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP2' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP3' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP3' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP5' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP5' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP6' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP6' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP7' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP7' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP8' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP8' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP9' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DECAP9' must have an output pin.
+@file(genus_script.tcl) 20: if {![info exists ::env(SVFILES)] } {
+    puts "Error: missing SVFILES"
+    exit(0)
+}
+@file(genus_script.tcl) 25: set_db init_hdl_search_path ../rtl/
+  Setting attribute of root '/': 'init_hdl_search_path' = ../rtl/
+@file(genus_script.tcl) 26: read_hdl -language sv [getenv SVFILES]
+    .RegFile        ( ibex_pkg::RegFileFF )
+                               |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Bad or unsupported package prefix 'ibex_pkg' in file '/home/pschaumont/ex-custom-ibex/custom/dv/verilator/top_verilator.sv' on line 20, column 32.
+        : Invalid Verilog syntax is parsed, or unsupported Verilog syntax is encountered.
+    .RegFile        ( ibex_pkg::RegFileFF )
+                                        |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ')', found '<identifier>' in file '/home/pschaumont/ex-custom-ibex/custom/dv/verilator/top_verilator.sv' on line 20, column 41.
+    .RegFile        ( ibex_pkg::RegFileFF )
+                                        |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ')', found '<identifier>' in file '/home/pschaumont/ex-custom-ibex/custom/dv/verilator/top_verilator.sv' on line 20, column 41.
+    .RegFile        ( ibex_pkg::RegFileFF )
+                                          |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Bad declaration using undeclared type 'custom_ibex' in file '/home/pschaumont/ex-custom-ibex/custom/dv/verilator/top_verilator.sv' on line 20, column 43.
+  parameter string NAME = "uart0"
+                 |
+Error   : Unsupported declaration. [VLOGPT-32] [read_hdl]
+        : String type in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 8, column 18.
+        : The following declarations are not supported for synthesis:
+    - tri0
+    - tri1
+    - event
+    - class
+    - chandle
+    - SV string type
+    - associative array.
+  parameter string NAME = "uart0"
+                      |
+Error   : Illegal use of SystemVerilog reserved word. [VLOGPT-8] [read_hdl]
+        : Keyword 'string' in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 8, column 23.
+        : SystemVerilog introduces many new keywords.  They are:
+    alias           do              join_any        solve
+    always_comb     endclass        join_none       static
+    always_ff       endclocking     local           string
+    always_latch    endinterface    logic           struct
+    assert          endprogram      longint         super
+    assert_strobe   endproperty     modport         this
+    before          endsequence     new             throughout
+    bind            enum            null            timeprecision
+    bit             export          packed          timeunit
+    break           extends         priority        type
+    byte            extern          program         typedef
+    chandle         final           property        union
+    class           first_match     protected       unique
+    clocking        forkjoin        pure            unique0
+    const           iff             rand            var
+    constraint      import          randc           virtual
+    context         inside          ref             void
+    continue        int             sequence        wait_order
+    cover           interface       shortint        with
+    dist            intersect       shortreal       within
+To use these keywords as identifiers in a design, you must read the input design with 'read_hdl -v1995' or 'read_hdl -v2001'; or use the pragma:
+    `begin_keywords "1364-1995"
+or    `begin_keywords "1364-2001".
+  localparam string DEFAULT_LOG_FILE = {NAME, ".log"};
+                  |
+Error   : Unsupported declaration. [VLOGPT-32] [read_hdl]
+        : String type in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 18, column 19.
+  localparam string DEFAULT_LOG_FILE = {NAME, ".log"};
+                                   |
+Error   : Illegal use of SystemVerilog reserved word. [VLOGPT-8] [read_hdl]
+        : Keyword 'string' in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 18, column 36.
+  localparam string DEFAULT_LOG_FILE = {NAME, ".log"};
+                                   |
+Error   : Missing required value in declaration. [VLOGPT-57] [read_hdl]
+        : Localparam declaration in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 18, column 36.
+        : Illegal Verilog syntax is encountered.
+  localparam string DEFAULT_LOG_FILE = {NAME, ".log"};
+                                   |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 18, column 36.
+  import "DPI-C" function
+               |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package scope. in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 23, column 16.
+  import "DPI-C" function
+               |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found 'string_literal' in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 23, column 16.
+  import "DPI-C" function
+               |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package scope. in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 26, column 16.
+  import "DPI-C" function
+               |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found 'string_literal' in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 26, column 16.
+  import "DPI-C" function
+               |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package scope. in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 29, column 16.
+  import "DPI-C" function
+               |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found 'string_literal' in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 29, column 16.
+  import "DPI-C" function
+               |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package scope. in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 32, column 16.
+  import "DPI-C" function
+               |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found 'string_literal' in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 32, column 16.
+  import "DPI-C" function
+               |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package scope. in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 35, column 16.
+  import "DPI-C" function
+               |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found 'string_literal' in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 35, column 16.
+#@ End verbose source ./genus_script.tcl
+1
+Encountered problems processing file: genus_script.tcl
+@genus:root: 2> 
+
+Another Ctrl-C within 1 second will terminate the tool.
+CURRENT RESOURCES: RT {elapsed: 195s, ST: 13s, FG: 13s, CPU: 5.1%}, MEM {curr: 0.9G, peak: 1.1G, phys curr: 0.3G, phys peak: 0.3G}, SYS {load: 0.1, cpu: 8, total: 31.3G, free: 8.0G}
+@genus:root: 2> read_hdl -language sv SVFILES=/home/pschaumont/ex-custom-ibex/custom/dv/verilator/top_verilator.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/shared/rtl/ram_1p.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/shared/rtl/ram_2p.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/shared/rtl/bus.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/shared/rtl/sim/simulator_ctrl.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/shared/rtl/timer.sv /home/pschaumont/ex-custom-ibex/build/custom_ibex_0/sim-verilator/generated/lowrisc_prim_ram_2p-impl_0/prim_ram_2p.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim_generic/rtl/prim_generic_ram_2p.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_ram_2p_pkg.sv /home/pschaumont/ex-custom-ibex/build/custom_ibex_0/sim-verilator/generated/lowrisc_prim_prim_pkg-impl_0.1/prim_pkg.sv /home/pschaumont/ex-custom-ibex/build/custom_ibex_0/sim-verilator/generated/lowrisc_prim_ram_1p-impl_0/prim_ram_1p.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/dv/uvm/icache/dv/prim_badbit/prim_badbit_ram_1p.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim_generic/rtl/prim_generic_ram_1p.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_ram_1p_pkg.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_assert.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_flop_macros.sv /home/pschaumont/ex-custom-ibex/rtl/system/jtag_id_pkg.sv /home/pschaumont/ex-custom-ibex/custom/rtl/custom_ibex.sv /home/pschaumont/ex-custom-ibex/rtl/system/dm_top.sv /home/pschaumont/ex-custom-ibex/rtl/system/debounce.sv /home/pschaumont/ex-custom-ibex/rtl/system/gpio.sv /home/pschaumont/ex-custom-ibex/rtl/system/pwm.sv /home/pschaumont/ex-custom-ibex/rtl/system/pwm_wrapper.sv /home/pschaumont/ex-custom-ibex/rtl/system/uart.sv /home/pschaumont/ex-custom-ibex/rtl/system/spi_host.sv /home/pschaumont/ex-custom-ibex/rtl/system/spi_top.sv /home/pschaumont/ex-custom-ibex/custom/rtl/myreg.sv /home/pschaumont/ex-custom-ibex/vendor/pulp_riscv_dbg/debug_rom/debug_rom.sv /home/pschaumont/ex-custom-ibex/vendor/pulp_riscv_dbg/debug_rom/debug_rom_one_scratch.sv /home/pschaumont/ex-custom-ibex/vendor/pulp_riscv_dbg/src/dm_pkg.sv /home/pschaumont/ex-custom-ibex/vendor/pulp_riscv_dbg/src/dm_sba.sv /home/pschaumont/ex-custom-ibex/vendor/pulp_riscv_dbg/src/dm_csrs.sv /home/pschaumont/ex-custom-ibex/vendor/pulp_riscv_dbg/src/dm_mem.sv /home/pschaumont/ex-custom-ibex/vendor/pulp_riscv_dbg/src/dmi_cdc.sv /home/pschaumont/ex-custom-ibex/vendor/pulp_riscv_dbg/src/dmi_jtag.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_sync_reqack.sv /home/pschaumont/ex-custom-ibex/vendor/pulp_riscv_dbg/src/dmi_jtag_tap.sv /home/pschaumont/ex-custom-ibex/build/custom_ibex_0/sim-verilator/generated/lowrisc_prim_clock_inv-impl_0/prim_clock_inv.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim_generic/rtl/prim_generic_clock_inv.sv /home/pschaumont/ex-custom-ibex/build/custom_ibex_0/sim-verilator/generated/lowrisc_prim_clock_mux2-impl_0/prim_clock_mux2.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim_xilinx/rtl/prim_xilinx_clock_mux2.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim_generic/rtl/prim_generic_clock_mux2.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_fifo_async_sram_adapter.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_fifo_async_simple.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_fifo_async.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_fifo_sync.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_fifo_sync_cnt.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_flop_2sync.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_cdc_rand_delay.sv /home/pschaumont/ex-custom-ibex/build/custom_ibex_0/sim-verilator/generated/lowrisc_prim_flop-impl_0/prim_flop.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim_generic/rtl/prim_generic_flop.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim_xilinx/rtl/prim_xilinx_flop.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_util_pkg.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_register_file_ff.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_register_file_fpga.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_register_file_latch.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_lockstep.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_top.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_onehot_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_onehot_mux.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_onehot_check.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_ram_1p_scr.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_subst_perm.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_present.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_prince.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_cipher_pkg.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_lfsr.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_ram_1p_adv.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_pkg.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_22_16_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_22_16_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_28_22_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_28_22_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_39_32_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_39_32_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_64_57_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_64_57_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_72_64_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_72_64_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_hamming_22_16_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_hamming_22_16_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_hamming_39_32_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_hamming_39_32_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_hamming_72_64_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_hamming_72_64_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_hamming_76_68_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_hamming_76_68_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_22_16_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_22_16_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_28_22_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_28_22_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_39_32_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_39_32_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_64_57_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_64_57_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_72_64_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_72_64_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_hamming_22_16_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_hamming_22_16_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_hamming_39_32_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_hamming_39_32_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_hamming_72_64_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_hamming_72_64_enc.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_hamming_76_68_dec.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_inv_hamming_76_68_enc.sv /home/pschaumont/ex-custom-ibex/build/custom_ibex_0/sim-verilator/generated/lowrisc_prim_buf-impl_0/prim_buf.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim_generic/rtl/prim_generic_buf.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim_xilinx/rtl/prim_xilinx_buf.sv /home/pschaumont/ex-custom-ibex/build/custom_ibex_0/sim-verilator/generated/lowrisc_prim_and2-impl_0/prim_and2.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim_generic/rtl/prim_generic_and2.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim_xilinx/rtl/prim_xilinx_and2.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_alu.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_branch_predict.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_compressed_decoder.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_controller.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_cs_registers.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_csr.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_counter.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_decoder.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_ex_block.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_fetch_fifo.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_id_stage.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_if_stage.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_load_store_unit.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_multdiv_fast.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_multdiv_slow.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_prefetch_buffer.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_pmp.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_wb_stage.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_dummy_instr.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_core.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_icache.sv /home/pschaumont/ex-custom-ibex/build/custom_ibex_0/sim-verilator/generated/lowrisc_prim_clock_gating-impl_0/prim_clock_gating.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim_generic/rtl/prim_generic_clock_gating.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/ip/prim_xilinx/rtl/prim_xilinx_clock_gating.sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/rtl/ibex_pkg.sv \
+
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'SVFILES=/home/pschaumont/ex-custom-ibex/custom/dv/verilator/top_verilator.sv'.
+        : The specified file could not be opened.  Check the value of the init_hdl_search_path attribute.
+  parameter string NAME = "uart0"
+                 |
+Error   : Unsupported declaration. [VLOGPT-32] [read_hdl]
+        : String type in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 8, column 18.
+  parameter string NAME = "uart0"
+                      |
+Error   : Illegal use of SystemVerilog reserved word. [VLOGPT-8] [read_hdl]
+        : Keyword 'string' in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 8, column 23.
+  localparam string DEFAULT_LOG_FILE = {NAME, ".log"};
+                  |
+Error   : Unsupported declaration. [VLOGPT-32] [read_hdl]
+        : String type in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 18, column 19.
+  localparam string DEFAULT_LOG_FILE = {NAME, ".log"};
+                                   |
+Error   : Illegal use of SystemVerilog reserved word. [VLOGPT-8] [read_hdl]
+        : Keyword 'string' in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 18, column 36.
+  localparam string DEFAULT_LOG_FILE = {NAME, ".log"};
+                                   |
+Error   : Missing required value in declaration. [VLOGPT-57] [read_hdl]
+        : Localparam declaration in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 18, column 36.
+  localparam string DEFAULT_LOG_FILE = {NAME, ".log"};
+                                   |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found '<identifier>' in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 18, column 36.
+  import "DPI-C" function
+               |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package scope. in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 23, column 16.
+  import "DPI-C" function
+               |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found 'string_literal' in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 23, column 16.
+  import "DPI-C" function
+               |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting a package scope. in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 26, column 16.
+  import "DPI-C" function
+               |
+Error   : Parsing error. [VLOGPT-1] [read_hdl]
+        : Expecting token ';', found 'string_literal' in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 26, column 16.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'VLOGPT-1'.
+1
+@genus:root: 3> 
+@genus:root: 3> read_hdl -language sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv
+  parameter string NAME = "uart0"
+                 |
+Error   : Unsupported declaration. [VLOGPT-32] [read_hdl]
+        : String type in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 8, column 18.
+  parameter string NAME = "uart0"
+                      |
+Error   : Illegal use of SystemVerilog reserved word. [VLOGPT-8] [read_hdl]
+        : Keyword 'string' in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 8, column 23.
+  localparam string DEFAULT_LOG_FILE = {NAME, ".log"};
+                  |
+Error   : Unsupported declaration. [VLOGPT-32] [read_hdl]
+        : String type in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 18, column 19.
+  localparam string DEFAULT_LOG_FILE = {NAME, ".log"};
+                                   |
+Error   : Illegal use of SystemVerilog reserved word. [VLOGPT-8] [read_hdl]
+        : Keyword 'string' in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 18, column 36.
+  localparam string DEFAULT_LOG_FILE = {NAME, ".log"};
+                                   |
+Error   : Missing required value in declaration. [VLOGPT-57] [read_hdl]
+        : Localparam declaration in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ip/dv/dpi/uartdpi/uartdpi.sv' on line 18, column 36.
+1
+@genus:root: 4> 
+@genus:root: 4> read_hdl -language sv /home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/shared/rtl/ram_1p.sv
+`include "prim_assert.sv"
+                        |
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'prim_assert.sv' in file '/home/pschaumont/ex-custom-ibex/vendor/lowrisc_ibex/shared/rtl/ram_1p.sv' on line 9, column 25.
+@genus:root: 5> exit
+
+Lic Summary:
+[06:53:42.233201] Cdslmd servers: arc-lic-02
+[06:53:42.233218] Feature usage summary:
+[06:53:42.233219] Genus_Synthesis
+
+Normal exit.

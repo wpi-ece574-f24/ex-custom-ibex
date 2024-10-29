@@ -1,0 +1,37 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[13:26:54.456105] Configured Lic search path (21.01-s002): 5280@arclic02.wpi.edu
+
+Version: 21.19-s055_1, built Wed May 29 13:33:07 PDT 2024
+Options: 
+Date:    Tue Oct 29 13:26:54 2024
+Host:    arc-schaumont-class-vm (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (8cores*8cpus*1physical cpu*Intel(R) Xeon(R) CPU E5-2680 v4 @ 2.40GHz 16384KB) (32779388KB)
+PID:     8585
+OS:      Red Hat Enterprise Linux Server release 7.9 (Maipo)
+
+
+[13:26:54.046369] Periodic Lic check successful
+[13:26:54.046378] Feature usage summary:
+[13:26:54.046379] Genus_Synthesis
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (11 seconds elapsed).
+
+@genus:root: 1> exit
+
+Lic Summary:
+[13:27:06.033706] Cdslmd servers: arc-lic-02
+[13:27:06.033715] Feature usage summary:
+[13:27:06.033720] Genus_Synthesis
+
+Normal exit.

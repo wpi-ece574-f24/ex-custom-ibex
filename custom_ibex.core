@@ -1,13 +1,16 @@
 CAPI=2:
-# Copyright lowRISC contributors.
-# Licensed under the Apache License, Version 2.0, see LICENSE for details.
-# SPDX-License-Identifier: Apache-2.0
 name: "custom_ibex"
-description: "Ibex Demo System for Arty A7 boards (both, -35 and -100)"
+description: "Custom IBEX configuration w memory-mapped coprocessor"
 filesets:
   files_rtl:
     depend:
       - custom_ibex_core
+    files:
+      - custom/rtl/top_rtl.sv
+      - vendor/lowrisc_ibex/shared/rtl/bus.sv
+      - vendor/lowrisc_ibex/shared/rtl/timer.sv
+      - vendor/lowrisc_ibex/shared/rtl/ram_1p.sv
+      - vendor/lowrisc_ibex/shared/rtl/ram_2p.sv
 
   files_verilator:
     depend:
@@ -43,10 +46,6 @@ parameters:
     paramtype: vlogdefine
     description: Primitives implementation to use, e.g. "prim_pkg::ImplGeneric".
 
-  SYNTHESIS:
-    datatype: bool
-    paramtype: vlogdefine
-
 targets:
   default: &default_target
     filesets:
@@ -81,5 +80,11 @@ targets:
 
   synth:
     <<: *default_target
-    default_tool: genus
-    toplevel: top_verilator
+    default_tool: vivado
+    toplevel: top_rtl
+    tools:
+      vivado:
+        part: "xc7a35tcsg324-1"  # Default part. Unused, only for RTL generation.
+    parameters:
+      - SRAMInitFile
+      - PRIM_DEFAULT_IMPL=prim_pkg::ImplGeneric
