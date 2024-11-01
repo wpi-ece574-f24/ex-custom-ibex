@@ -31,3 +31,41 @@ syn:
 
 clean:
 	rm -rf build sw/c/build
+
+
+#/opt/lowrisc-toolchain-rv32imcb-20240206-1/bin/riscv32-unknown-elf-gcc  
+#-I/home/pschaumont/ex-custom-ibex/sw/c/common 
+#-march=rv32imc 
+#-mabi=ilp32 
+#-mcmodel=medany 
+#-Wall 
+#-fvisibility=hidden 
+#-ffreestanding 
+#-g 
+#-MD 
+#-MT 
+#demo/myreg-test/CMakeFiles/myreg-test.dir/main.c.obj 
+#-MF CMakeFiles/myreg-test.dir/main.c.obj.d 
+#-o CMakeFiles/myreg-test.dir/main.c.obj 
+#-c /home/pschaumont/ex-custom-ibex/sw/c/demo/myreg-test/main.c
+#
+#
+#/opt/lowrisc-toolchain-rv32imcb-20240206-1/bin/riscv32-unknown-elf-gcc 
+#-march=rv32imc 
+#-mabi=ilp32 
+#-mcmodel=medany 
+#-Wall 
+#-fvisibility=hidden 
+#-ffreestanding 
+#-g 
+#-nostartfiles 
+#-T "/home/pschaumont/ex-custom-ibex/sw/c/../common/link.ld" 
+#"CMakeFiles/myreg-test.dir/main.c.obj" 
+#../../common/CMakeFiles/common.dir/demo_system.c.obj 
+#../../common/CMakeFiles/common.dir/uart.c.obj 
+#../../common/CMakeFiles/common.dir/timer.c.obj 
+#../../common/CMakeFiles/common.dir/gpio.c.obj 
+#../../common/CMakeFiles/common.dir/pwm.c.obj 
+#../../common/CMakeFiles/common.dir/spi.c.obj 
+#../../common/CMakeFiles/common.dir/crt0.S.obj 
+#-o myreg-test
