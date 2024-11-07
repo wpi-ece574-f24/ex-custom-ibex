@@ -440,7 +440,7 @@ module custom_ibex #(
 		   .device_req_i   (device_req[MyReg]),
 		   .device_addr_i  (device_addr[MyReg]),
 		   .device_we_i    (device_we[MyReg]),
-		   .device_be_i    (device_be[MyReg]),
+  		   .device_be_i    (device_be[MyReg]),
 		   .device_wdata_i (device_wdata[MyReg]),
 		   .device_rvalid_o(device_rvalid[MyReg]),
 		   .device_rdata_o (device_rdata[MyReg])		   

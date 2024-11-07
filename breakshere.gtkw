@@ -1,0 +1,76 @@
+[*]
+[*] GTKWave Analyzer v3.3.117 (w)1999-2023 BSI
+[*] Wed Nov  6 14:49:46 2024
+[*]
+[dumpfile] "/home/pschaumont/ex-custom-ibex/sim.fst"
+[dumpfile_mtime] "Fri Nov  1 19:18:25 2024"
+[dumpfile_size] 15767781
+[savefile] "/home/pschaumont/ex-custom-ibex/breakshere.gtkw"
+[timestart] 7805
+[size] 1582 939
+[pos] 1974 -5
+*-7.000000 8109 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.top_verilator.
+[treeopen] TOP.top_verilator.u_ibex_demo_system.
+[sst_width] 271
+[signals_width] 290
+[sst_expanded] 1
+[sst_vpaned_height] 366
+@22
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_addr_o[6][31:0]
+@23
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_addr_o[0][31:0]
+@22
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_addr_o[1][31:0]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_addr_o[2][31:0]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_addr_o[3][31:0]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_addr_o[4][31:0]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_addr_o[5][31:0]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_addr_o[6][31:0]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_addr_o[7][31:0]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_addr_o[8][31:0]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_be_o[6][3:0]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_rdata_i[6][31:0]
+@800022
+#{TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[0:8]} TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[0] TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[1] TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[2] TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[3] TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[4] TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[5] TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[6] TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[7] TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[8]
+@28
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[0]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[1]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[2]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[3]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[4]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[5]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[6]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[7]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_req_o[8]
+@1001200
+-group_end
+@c00022
+#{TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[0:8]} TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[0] TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[1] TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[2] TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[3] TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[4] TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[5] TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[6] TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[7] TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[8]
+@28
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[0]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[1]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[2]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[3]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[4]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[5]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[6]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[7]
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_rvalid_i[8]
+@1401200
+-group_end
+@22
+TOP.top_verilator.u_ibex_demo_system.u_bus.device_wdata_o[6][31:0]
+TOP.top_verilator.u_ibex_demo_system.u_myreg.device_addr_i[31:0]
+TOP.top_verilator.u_ibex_demo_system.u_myreg.device_rdata_o[31:0]
+@28
+TOP.top_verilator.u_ibex_demo_system.u_myreg.device_req_i
+@22
+TOP.top_verilator.u_ibex_demo_system.u_myreg.device_wdata_i[31:0]
+@28
+TOP.top_verilator.u_ibex_demo_system.u_myreg.device_we_i
+@22
+TOP.top_verilator.u_ibex_demo_system.u_ram.a_rdata_o[31:0]
+[pattern_trace] 1
+[pattern_trace] 0
