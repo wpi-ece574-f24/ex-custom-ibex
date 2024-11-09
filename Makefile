@@ -1,4 +1,4 @@
-APP = myreg-test
+APP = poly1305
 
 all:
 	@echo "Targets:"

@@ -1,0 +1,98 @@
+#include "poly1305.h"
+#include "demo_system.h"
+#include "timer.h"
+
+uint8_t key[32] = {0x85,0xd6,0xbe,0x78,0x57,0x55,0x6d,0x33,0x7f,0x44,0x52,0xfe,0x42,0xd5,0x06,0xa8,
+		   0x01,0x03,0x80,0x8a,0xfb,0x0d,0xb2,0xfd,0x4a,0xbf,0xf6,0xaf,0x41,0x49,0xf5,0x1b};
+
+uint8_t block1[16] = {0x43,0x72,0x79,0x70,0x74,0x6f,0x67,0x72,0x61,0x70,0x68,0x69,0x63,0x20,0x46,0x6f};
+size_t  block1len  = 16;
+
+uint8_t block2[16] = {0x72,0x75,0x6d,0x20,0x52,0x65,0x73,0x65,0x61,0x72,0x63,0x68,0x20,0x47,0x72,0x6f};
+size_t  block2len  = 16;
+
+uint8_t block3[16]  = {0x75,0x70};
+size_t  block3len  = 2;
+
+uint8_t tag[16];
+
+void showBlock(const uint8_t *data, size_t length) {
+  uint8_t n;
+  uint8_t d;
+  for (n=0; n<length; n++) {
+    d = (data[n] >> 4) & 0xf;
+    putchar((d > 9) ? d - '0' : d - 'A');
+    d = data[n] & 0xf;
+    putchar((d > 9) ? d - '0' : d - 'A');
+  }
+  putchar('\n');
+}
+
+void showPoly(const Poly1305Context *p) {
+  uint8_t n;
+
+  puts("R ");
+  puthex(p->r[0]); putchar(' ');
+  puthex(p->r[1]); putchar(' ');
+  puthex(p->r[2]); putchar(' ');
+  puthex(p->r[3]); putchar('\n');
+
+  puts("S ");
+  puthex(p->s[0]); putchar(' ');
+  puthex(p->s[1]); putchar(' ');
+  puthex(p->s[2]); putchar(' ');
+  puthex(p->s[3]); putchar('\n');
+
+  puts("A ");
+  puthex((uint32_t) (p->a[0] >> 32)); puthex((uint32_t) (p->a[0])); putchar(' ');
+  puthex((uint32_t) (p->a[1] >> 32)); puthex((uint32_t) (p->a[1])); putchar(' ');
+  puthex((uint32_t) (p->a[2] >> 32)); puthex((uint32_t) (p->a[2])); putchar(' ');
+  puthex((uint32_t) (p->a[3] >> 32)); puthex((uint32_t) (p->a[3])); putchar(' ');
+  puthex((uint32_t) (p->a[4] >> 32)); puthex((uint32_t) (p->a[4])); putchar(' ');
+  puthex((uint32_t) (p->a[5] >> 32)); puthex((uint32_t) (p->a[5])); putchar(' ');
+  puthex((uint32_t) (p->a[6] >> 32)); puthex((uint32_t) (p->a[6])); putchar(' ');
+  puthex((uint32_t) (p->a[7] >> 32)); puthex((uint32_t) (p->a[7])); putchar('\n');
+
+  puts("A* ");
+  puthex((uint32_t) (p->a[4])); putchar(' ');
+  puthex((uint32_t) (p->a[3])); putchar(' ');
+  puthex((uint32_t) (p->a[2])); putchar(' ');
+  puthex((uint32_t) (p->a[1])); putchar(' ');
+  puthex((uint32_t) (p->a[0])); putchar(' ');
+
+  puts("Buffer ");
+  for (n=0; n<17; n++) 
+    putchar((p->buffer[n] > 9) ? p->buffer[n] - '0' : p->buffer[n] - 'A');
+  putchar('\n');
+
+  puts("Size ");
+  puthex((uint32_t) (p->size >> 32)); puthex((uint32_t) (p->size)); putchar(' ');
+  putchar('\n');
+}
+
+void main() {
+
+  Poly1305Context c;
+
+  puts("--key:\n");
+  poly1305Init(&c, key);
+  showPoly(&c);
+  
+  puts("--block1:\n");
+  poly1305Update(&c, block1, block1len);
+  showPoly(&c);
+  
+  puts("--block2:\n");
+  poly1305Update(&c, block2, block2len);
+  showPoly(&c);
+  
+  puts("--block3:\n");
+  poly1305Update(&c, block3, block3len);
+  showPoly(&c);
+  
+  puts("--final:\n");
+  poly1305Final(&c, tag);
+  showPoly(&c);
+
+  showBlock(tag, 16);
+}

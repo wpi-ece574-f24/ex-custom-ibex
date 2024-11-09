@@ -3,8 +3,8 @@ module top_rtl #(
 ) (
    input 	clk,
    input 	rst_n,
-   input [8:0] 	gpio_in,
-   output [8:0] gpio_out
+   input [7:0] 	gpio_in,
+   output [7:0] gpio_out
 );
 
   custom_ibex #(
