@@ -18,11 +18,12 @@ module myreg #(
    localparam int 	       unsigned MYREG_REG2 = 32'h4;
    
    logic [RegAddr-1:0] 	       reg_addr;
-   logic 		       reg1_wr, reg1_rd;
-   logic 		       reg2_wr, reg2_rd;
+   logic 		       reg1_wr, reg1_rd, reg1_rd_d;
+   logic 		       reg2_wr, reg2_rd, reg2_rd_d;
 
    logic [31:0] 	       reg1_data;
    logic [31:0] 	       reg2_data;
+
    
    // Decode write and read requests.
    assign reg_addr          = device_addr_i[RegAddr-1:0];
@@ -35,13 +36,18 @@ module myreg #(
     if (!rst_ni) begin
        reg1_data <= 32'b0;
        reg2_data <= 32'b0;
+       reg1_rd_d <= 1'b0;
+       reg2_rd_d <= 1'b0;       
     end else begin
        if (reg1_wr)
 	 begin
 	    reg1_data[7:0]   <= {device_be_i[0] ? device_wdata_i[7:0] : reg1_data[7:0]};
 	    reg1_data[15:8]  <= {device_be_i[1] ? device_wdata_i[15:8] : reg1_data[15:8]};
 	    reg1_data[23:16] <= {device_be_i[2] ? device_wdata_i[23:16] : reg1_data[23:16]};
-	    reg1_data[31:24] <= {device_be_i[3] ? device_wdata_i[31:24] : reg1_data[31:24]};	    
+	    reg1_data[31:24] <= {device_be_i[3] ? device_wdata_i[31:24] : reg1_data[31:24]};
+	    
+	    // when writing into reg1, will add its (old) contents to reg2
+	    reg2_data <= reg2_data + reg1_data;	    
 	 end
        if (reg2_wr)
 	 begin
@@ -49,16 +55,21 @@ module myreg #(
 	    reg2_data[15:8]  <= {device_be_i[1] ? device_wdata_i[15:8] : reg2_data[15:8]};
 	    reg2_data[23:16] <= {device_be_i[2] ? device_wdata_i[23:16] : reg2_data[23:16]};
 	    reg2_data[31:24] <= {device_be_i[3] ? device_wdata_i[31:24] : reg2_data[31:24]};	    
+
+	    // when writing into reg2, will add its (old) contents to reg1
+	    reg1_data <= reg1_data + reg2_data;
 	 end
        device_rvalid_o <= device_req_i;
+       reg1_rd_d <= reg1_rd;
+       reg2_rd_d <= reg2_rd;
     end
   end
 
   // Assign device_rdata_o according to request type.
   always_comb begin
-    if (reg1_rd)
+    if (reg1_rd_d)
       device_rdata_o = reg1_data;
-    else if (reg2_rd)
+    else if (reg2_rd_d)
       device_rdata_o = reg2_data;
     else
       device_rdata_o = 32'b0;
